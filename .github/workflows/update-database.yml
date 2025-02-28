@@ -25,11 +25,11 @@ jobs:
       - name: Run connector
         run: node tmdb-reddit-connector.js
         env:
-          TMDB_API_KEY: ${{ secrets.51092c6cd8e5500a4457ba358eaff91e }}
-          REDDIT_CLIENT_ID: ${{ secrets.m5YNP0t0ZZDEI43dKj5E6Q }}
-          REDDIT_CLIENT_SECRET: ${{ secrets.Kom_vvM9joAk5mT4M17X6XC1OGqyaA }}
-          REDDIT_USERNAME: ${{ secrets.Slight-Jellyfish-893 }}
-          REDDIT_PASSWORD: ${{ secrets.U.n3Hm(&JwQ8/UB }}
-          FIREBASE_PROJECT_ID: ${{ secrets.spoilerblocker }}
-          FIREBASE_CLIENT_EMAIL: ${{ secrets.sollin.m@gmail.com }}
-          FIREBASE_PRIVATE_KEY: ${{ secrets.AIzaSyDfnkB3th-79lHaRTGOSqx_6f1w2Z2SVJ0 }}
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
+          FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
