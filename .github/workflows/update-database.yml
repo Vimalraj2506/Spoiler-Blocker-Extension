@@ -22,8 +22,9 @@ jobs:
       - name: Install dependencies
         run: npm install axios firebase-admin dotenv
         
-      - name: Run connector
-        run: node tmdb-reddit-connector.js
+      - name: Run TMDB-Reddit Connector
+        run: node src/tmdb-reddit-connector.js
+      
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
