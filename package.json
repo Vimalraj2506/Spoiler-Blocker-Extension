@@ -1,0 +1,28 @@
+{
+  "name": "spoiler-blocker-extension",
+  "version": "1.0.0",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sollinselvan89/spoiler-blocker-extension.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sollinselvan89/spoiler-blocker-extension/issues"
+  },
+  "homepage": "https://github.com/Sollinselvan89/spoiler-blocker-extension#readme",
+  "description": "",
+  "dependencies": {
+    "firebase": "^11.3.1"
+  },
+  "devDependencies": {
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
+  }
+}

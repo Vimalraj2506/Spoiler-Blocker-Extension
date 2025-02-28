@@ -1,0 +1,1 @@
+chrome.runtime.onInstalled.addListener((()=>{console.log("Spoiler Blocker extension installed")})),chrome.runtime.onMessage.addListener(((e,o,r)=>{if("getKeywords"===e.action)return chrome.storage.local.get("keywords",(e=>{r({keywords:e.keywords||[]})})),!0}));
