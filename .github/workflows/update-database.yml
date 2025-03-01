@@ -16,18 +16,16 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '18.x'
+        cache: 'npm'
     
-    - name: Show package.json content
-      run: cat package.json
+    - name: Debug npm cache
+      run: npm config get cache
     
-    - name: Clean install of dependencies
-      run: npm ci || npm install
-    
-    - name: Install axios explicitly
-      run: npm install axios --save
-    
-    - name: List installed packages
-      run: npm list --depth=0
+    - name: Direct install of axios and dotenv
+      run: |
+        npm install axios dotenv
+        ls -la node_modules/axios
+        ls -la node_modules/dotenv
     
     - name: Run connector script
       run: node src/tmdb-reddit-connector.js
