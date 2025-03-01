@@ -17,10 +17,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18'  # Updated from '16' to '18'
           
       - name: Install dependencies
-        run: npm install axios firebase-admin dotenv
+        run: npm install
         
       - name: Debug Environment Variables
         run: |
