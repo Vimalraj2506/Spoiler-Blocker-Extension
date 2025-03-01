@@ -33,8 +33,8 @@ if (!firebase.apps.length) {
   firebase.initializeApp({
     credential: firebase.credential.cert({
       projectId: process.env.FIREBASE_PROJECT_ID,
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,  // ✅ Required field
-      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')  // ✅ Fix newline formatting
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
     })
   });
 }
@@ -140,6 +140,14 @@ async function storeMediaInFirestore(mediaItems) {
     console.error('❌ Error storing media in Firestore:', error);
     return [];
   }
+}
+
+/**
+ * Collect spoilers for a specific media item
+ */
+async function collectSpoilers(mediaId) {
+  console.log(`🔍 Collecting spoilers for mediaId: ${mediaId}`);
+  // Placeholder function - Add logic to fetch spoilers from Reddit
 }
 
 // Run directly if called as script
