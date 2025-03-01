@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Sollinselvan89/spoiler-blocker-extension#readme",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.3.1",
     "firebase": "^11.3.1"
   },
   "devDependencies": {
