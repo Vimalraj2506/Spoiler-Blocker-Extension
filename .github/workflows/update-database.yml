@@ -4,8 +4,6 @@ on:
   workflow_dispatch:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   run-connector:
@@ -19,8 +17,17 @@ jobs:
       with:
         node-version: '18.x'
     
-    - name: Install dependencies
-      run: npm install
+    - name: Show package.json content
+      run: cat package.json
+    
+    - name: Clean install of dependencies
+      run: npm ci || npm install
+    
+    - name: Install axios explicitly
+      run: npm install axios --save
+    
+    - name: List installed packages
+      run: npm list --depth=0
     
     - name: Run connector script
       run: node src/tmdb-reddit-connector.js
