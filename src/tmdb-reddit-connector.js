@@ -29,16 +29,17 @@ const axios = require('axios');
 const firebase = require('firebase-admin');
 require('dotenv').config();
 
+   clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
 // Initialize Firebase Admin SDK if not already initialized
 if (!firebase.apps.length) {
-  firebase.initializeApp({
-    credential: firebase.credential.cert({
-      projectId: process.env.FIREBASE_PROJECT_ID,
-      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')
-    })
-  });
-}
+    firebase.initializeApp({
+      credential: firebase.credential.cert({
+        projectId: process.env.FIREBASE_PROJECT_ID,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,  // ✅ Required field
+        privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n')  // ✅ Fix newline formatting
+      })
+    });
+  }  
 
 const db = firebase.firestore();
 const TMDB_API_KEY = process.env.TMDB_API_KEY;
