@@ -1,10 +1,12 @@
 name: Run TMDB-Reddit Connector
 
 on:
+  on:
+    workflow_dispatch:  # Adds manual trigger
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
   # You can add schedule or other triggers as needed
 
 jobs:
