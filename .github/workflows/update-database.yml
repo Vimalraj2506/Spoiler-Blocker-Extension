@@ -1,11 +1,3 @@
-name: Update Spoiler Database
-
-on:
-  schedule:
-    # Runs at 1 AM UTC every day
-    - cron: '0 1 * * *'
-  workflow_dispatch: # Allows manual triggering
-
 jobs:
   update-database:
     runs-on: ubuntu-latest
@@ -17,33 +9,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Updated from '16' to '18'
-          
+          node-version: '18'  # Ensure Node.js 18+
+
       - name: Install dependencies
-        run: npm install
-        
-      - name: Debug Environment Variables
-        run: |
-          echo "🔍 Checking environment variables..."
-          echo "FIREBASE_PROJECT_ID: ${FIREBASE_PROJECT_ID:+SET}"
-          echo "FIREBASE_CLIENT_EMAIL: ${FIREBASE_CLIENT_EMAIL:+SET}"
-          echo "FIREBASE_PRIVATE_KEY: ${FIREBASE_PRIVATE_KEY:+SET}"
-          echo "TMDB_API_KEY: ${TMDB_API_KEY:+SET}"
-          echo "REDDIT_CLIENT_ID: ${REDDIT_CLIENT_ID:+SET}"
-          echo "REDDIT_CLIENT_SECRET: ${REDDIT_CLIENT_SECRET:+SET}"
-          echo "REDDIT_USERNAME: ${REDDIT_USERNAME:+SET}"
-          echo "REDDIT_PASSWORD: ${REDDIT_PASSWORD:+SET}"
-        env:
-          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-          FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
-          FIREBASE_PRIVATE_KEY: ${{ secrets.FIREBASE_PRIVATE_KEY }}
-          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
-          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
-          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
-          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
-          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+        run: npm install  # ✅ Install all dependencies properly
 
       - name: Run TMDB-Reddit Connector
+        run: node src/tmdb-reddit-connector.js
         env:
           FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
           FIREBASE_CLIENT_EMAIL: ${{ secrets.FIREBASE_CLIENT_EMAIL }}
@@ -53,4 +25,3 @@ jobs:
           REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
           REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
           REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
-        run: node src/tmdb-reddit-connector.js
