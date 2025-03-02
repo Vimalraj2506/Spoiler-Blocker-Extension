@@ -19,12 +19,7 @@ import {
 
 // Your Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDfnkB3th-79lHaRTGOSqx_6f1w2Z2SVJ0",
-  authDomain: "spoilerblocker.firebaseapp.com",
-  projectId: "spoilerblocker",
-  storageBucket: "spoilerblocker.firebasestorage.app",
-  messagingSenderId: "101427520835",
-  appId: "1:101427520835:web:8f56c96db8aa89ba4e53fb"
+  
 };
 
 // Initialize Firebase
